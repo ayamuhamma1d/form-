@@ -20,7 +20,24 @@ function generateItineraryFields() {
     itineraryContainer.appendChild(dayLabel2);
     itineraryContainer.appendChild(input2);
   }
+  
 }
+function handleTripTypeChange() {
+    const tripTypeSelect = document.getElementById('tripType');
+    const tripDurationInput = document.getElementById('tripDuration');
+    const durationUnitSpan = document.getElementById('durationUnit');
+
+    if (tripTypeSelect.value.includes('DayTours')) {
+      tripDurationInput.value = ''; 
+      tripDurationInput.setAttribute('placeholder', 'Enter duration in hours');
+      durationUnitSpan.textContent = 'hours';
+      tripDurationInput.setAttribute('disabled', true);
+    } else {
+      durationUnitSpan.textContent = 'days';
+      tripDurationInput.removeAttribute('disabled');
+      tripDurationInput.setAttribute('placeholder', '');
+    }
+  }
 
 function validateForm() {
   const tripDuration = document.getElementById('tripDuration').value;
@@ -35,6 +52,13 @@ function validateForm() {
   }
   alert('Form submitted successfully!');
   return true;
+}
+function addInput(containerId) {
+    const container = document.getElementById(containerId);
+    const input = document.createElement('input');
+    input.type = 'text';
+
+    container.prepend(input);
 }
 
 document.getElementById('tripDuration').addEventListener('input', function() {
