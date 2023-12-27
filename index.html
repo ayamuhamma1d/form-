@@ -16,10 +16,6 @@
       
         <label for="tripImage">Trip Image:</label>
         <input type="file" id="tripImage" accept="image/*" required>
-      
-
-      
- 
         <label for="tripType">Trip Type:</label>
         <select id="tripType" multiple required>
           <optgroup label="Day Tours">
@@ -45,10 +41,20 @@
           <hr />
           <option value="nileCruise">Nile Cruise</option>
           <option value="airportTransfers">Airport Transfers</option>
-          <option value="shoreExcursions">Shore Excursions</option>
+          <hr />
+          <optgroup label="Shore Excursions">
+            <option value="ToursFromAlexandria">Tours from Alexandria</option>
+            <option value="ToursFromPortSaid">Tours from Port said</option>
+            <option value="ToursFromAinElSokhna">Tours from Ain El Sokhna</option>
+            <option value="ToursFromSafagaPort">Tours from Safaga port</option>
+            <option value="HoneyMoonT.P">Honey moon T.P</option>
+            <option value="FamilyT.P">Family. T.P</option>
+            <option value="SoloTourPackages">Solo tour Packages.</option>
+          </optgroup>
+          <hr />
         </select>
         <label for="tripDestination">Trip Destination:</label>
-        <select id="tripDestination" required>
+        <select id="tripDestination" required multiple>
           <option value="cairo">Cairo</option>
           <option value="giza">Giza</option>
           <option value="alexandria">Alexandria</option>
