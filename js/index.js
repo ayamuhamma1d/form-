@@ -3,7 +3,6 @@ function generateItineraryFields() {
   const duration = tripTypeSelect.value.includes('DayTours') ? 1 : document.getElementById('tripDuration').value;
   const itineraryContainer = document.getElementById('itineraryContainer');
   itineraryContainer.innerHTML = '';
-
   for (let day = 1; day <= duration; day++) {
     const dayLabel = document.createElement('label');
     dayLabel.textContent = `Day ${day} : Title:`;
@@ -30,7 +29,7 @@ function handleTripTypeChange() {
 
   if (tripTypeSelect.value.includes('DayTours')) {
     tripDurationInput.value = '';
-    tripDurationHour.value = ''; // Clear the hours input
+    tripDurationHour.value = ''; 
     durationUnitSpan.textContent = 'hours';
     tripDurationInput.style.display = 'none';
     tripDurationHour.style.display = 'block';
@@ -94,7 +93,6 @@ function addOption() {
 
   optionContainer.appendChild(textInput);
   optionContainer.appendChild(priceInput);
-
   optionsContainer.appendChild(optionContainer);
 }
 

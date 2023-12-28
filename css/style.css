@@ -123,3 +123,7 @@ body {
 .d_none{
   display: none;
 }
+
+textarea{
+  resize: none;
+}
