@@ -79,6 +79,24 @@ function handlePricePackageChange() {
 
 const pricePackageOptions = document.getElementById('pricePackageOptions');
 pricePackageOptions.addEventListener('change', handlePricePackageChange);
+function addOption() {
+  const optionsContainer = document.getElementById('tripOptionsContainer');
+  const optionContainer = document.createElement('div');
+  optionContainer.classList.add('option-container');
+
+  const textInput = document.createElement('input');
+  textInput.type = 'text';
+  textInput.placeholder = 'Trip';
+
+  const priceInput = document.createElement('input');
+  priceInput.type = 'number';
+  priceInput.placeholder = 'Trip Price';
+
+  optionContainer.appendChild(textInput);
+  optionContainer.appendChild(priceInput);
+
+  optionsContainer.appendChild(optionContainer);
+}
 
 document.getElementById('tripDuration').addEventListener('input', function() {
   const unit = this.value === '1' ? 'day' : 'days';

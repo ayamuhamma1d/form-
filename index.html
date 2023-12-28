@@ -88,10 +88,10 @@
       <span id="durationUnit">days</span>
 
       <label for="tripOverview">Trip Overview:</label>
-      <textarea id="tripOverview" rows="4" required></textarea>
+      <textarea id="tripOverview" rows="4" required ></textarea>
       <label for="tripHighlights">Trip Highlights:</label>
       <div id="tripHighlightsContainer">
-        <input type="text" required />
+        <input type="text" required placeholder="Trip Highlights"/>
         <button type="button" onclick="addInput('tripHighlightsContainer')">
           Add
         </button>
@@ -99,15 +99,15 @@
 
       <label for="tripCostExclude">Cost (Exclude):</label>
       <div id="tripCostExcludeContainer">
-        <input type="text" required />
+        <input type="text" required placeholder="cost Exclude" />
         <button type="button" onclick="addInput('tripCostExcludeContainer')">
           Add
         </button>
       </div>
 
       <label for="tripCostInclude">Cost (Include):</label>
-      <div id="tripCostIncludeContainer">
-        <input type="text" required />
+      <div id="tripCostIncludeContainer"> 
+        <input type="text" required placeholder="cost Include"/>
         <button type="button" onclick="addInput('tripCostIncludeContainer')">
           Add
         </button>
@@ -147,6 +147,15 @@
           <input type="radio" name="priceOptions" value="solo/christmas"> Solo/Christmas and Easter
         </label>
       </div>
+      <label for="tripOptions">Trip Options:</label>
+      <div id="tripOptionsContainer">
+      </div>
+      <button type="button" onclick="addOption()">
+        Add Option
+      </button>
+    
+
+      
       <button type="submit">Submit</button>
     </form>
 
