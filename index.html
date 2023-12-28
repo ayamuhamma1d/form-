@@ -76,6 +76,7 @@
         <option value="cairo">Cairo</option>
         <option value="giza">Giza</option>
         <option value="alexandria">Alexandria</option>
+        <option value="luxor">Luxor</option>
         <option value="aswan">Aswan</option>
         <option value="hurghada">Hurghada</option>
         <option value="alexandria">Sharm EL-SheiKh</option>
@@ -87,6 +88,12 @@
       <input type="number" id="tripDurationHour" class="d_none" min="1"  required placeholder="Enter duration in hours" />
       <span id="durationUnit">days</span>
 
+      <label for="itinerary">Itinerary:</label>
+      <div id="itineraryContainer"></div>
+
+      <button type="button" onclick="generateItineraryFields()">
+        Generate Itinerary Fields
+      </button>
       <label for="tripOverview">Trip Overview:</label>
       <textarea id="tripOverview" rows="4" required ></textarea>
       <label for="tripHighlights">Trip Highlights:</label>
@@ -113,12 +120,6 @@
 
 
 
-      <label for="itinerary">Itinerary:</label>
-      <div id="itineraryContainer"></div>
-
-      <button type="button" onclick="generateItineraryFields()">
-        Generate Itinerary Fields
-      </button>
       <label for="pricePackage">Price Package:</label>
       <div id="pricePackageOptions" class="price_package_option">
         <label>
