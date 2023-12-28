@@ -59,7 +59,6 @@ function addInput(containerId) {
     const container = document.getElementById(containerId);
     const input = document.createElement('input');
     input.type = 'text';
-
     container.prepend(input);
 }
 function handlePricePackageChange() {
