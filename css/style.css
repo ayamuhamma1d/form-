@@ -105,3 +105,21 @@ body {
   optgroup {
     font-weight: bold;
   }
+.price_package_option{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+.price_options{
+  font-weight: normal;
+
+}
+.text_bold{
+  font-weight: bold;
+  font-style: italic !important;
+ }
+.d_none{
+  display: none;
+}

@@ -1,6 +1,6 @@
-
 function generateItineraryFields() {
-  const duration = document.getElementById('tripDuration').value;
+  const tripTypeSelect = document.getElementById('tripType');
+  const duration = tripTypeSelect.value.includes('DayTours') ? 1 : document.getElementById('tripDuration').value;
   const itineraryContainer = document.getElementById('itineraryContainer');
   itineraryContainer.innerHTML = '';
 
@@ -20,24 +20,27 @@ function generateItineraryFields() {
     itineraryContainer.appendChild(dayLabel2);
     itineraryContainer.appendChild(input2);
   }
-  
 }
-function handleTripTypeChange() {
-    const tripTypeSelect = document.getElementById('tripType');
-    const tripDurationInput = document.getElementById('tripDuration');
-    const durationUnitSpan = document.getElementById('durationUnit');
 
-    if (tripTypeSelect.value.includes('DayTours')) {
-      tripDurationInput.value = ''; 
-      tripDurationInput.setAttribute('placeholder', 'Enter duration in hours');
-      durationUnitSpan.textContent = 'hours';
-      tripDurationInput.setAttribute('disabled', true);
-    } else {
-      durationUnitSpan.textContent = 'days';
-      tripDurationInput.removeAttribute('disabled');
-      tripDurationInput.setAttribute('placeholder', '');
-    }
+function handleTripTypeChange() {
+  const tripTypeSelect = document.getElementById('tripType');
+  const tripDurationInput = document.getElementById('tripDuration');
+  const tripDurationHour = document.getElementById('tripDurationHour');
+  const durationUnitSpan = document.getElementById('durationUnit');
+
+  if (tripTypeSelect.value.includes('DayTours')) {
+    tripDurationInput.value = '';
+    tripDurationHour.value = ''; // Clear the hours input
+    durationUnitSpan.textContent = 'hours';
+    tripDurationInput.style.display = 'none';
+    tripDurationHour.style.display = 'block';
+  } else {
+    durationUnitSpan.textContent = 'days';
+    tripDurationInput.removeAttribute('disabled');
+    tripDurationInput.style.display = 'block';
+    tripDurationHour.style.display = 'none';
   }
+}
 
 function validateForm() {
   const tripDuration = document.getElementById('tripDuration').value;
@@ -60,6 +63,22 @@ function addInput(containerId) {
 
     container.prepend(input);
 }
+function handlePricePackageChange() {
+  const priceOptionsContainer = document.getElementById('priceOptionsContainer');
+  const pricePackage = document.querySelector('input[name="pricePackage"]:checked').value;
+  if (pricePackage === 'standard') {
+
+    priceOptionsContainer.style.display = 'flex';
+  } else if (pricePackage === 'luxury') {
+
+    priceOptionsContainer.style.display = 'flex';
+  } else if (pricePackage === 'demand') {
+    priceOptionsContainer.style.display = 'flex';
+  }
+}
+
+const pricePackageOptions = document.getElementById('pricePackageOptions');
+pricePackageOptions.addEventListener('change', handlePricePackageChange);
 
 document.getElementById('tripDuration').addEventListener('input', function() {
   const unit = this.value === '1' ? 'day' : 'days';
