@@ -107,65 +107,73 @@ function handlePricePackageChange() {
     const optionContainer = document.createElement('div');
     optionContainer.classList.add('option-container');
 
-    const radioContainer = document.createElement('div');
+    if (package.value === 'DayTourPackage') {
+      const dayTourOptions = ['Solo (1-1)', '2-3', '4-6', '7-10', '11-20'];
 
-    const radioDbl = document.createElement('input');
-    radioDbl.type = 'checkbox';
-    radioDbl.name = 'radioOption';
-    radioDbl.value = 'dbl';
-     const radioSolo = document.createElement('input');
-    radioSolo.type = 'checkbox';
-    radioSolo.name = 'radioOption';
-    radioSolo.value = 'solo';
-    const radioAll = document.createElement('input');
-    radioAll.type = 'checkbox';
-    radioAll.name = 'radioOption';
-    radioAll.value = 'all';
-    const priceInput1 = document.createElement('input');
-    priceInput1.type = 'number';
-    priceInput1.placeholder = 'Enter price';
-    priceInput1.name = 'priceInput';
-    const priceInput2 = document.createElement('input');
-    priceInput2.type = 'number';
-    priceInput2.placeholder = 'Enter price';
-    priceInput2.name = 'priceInput';
-    const priceInput3 = document.createElement('input');
-    priceInput3.type = 'number';
-    priceInput3.placeholder = 'Enter price';
-    priceInput3.name = 'priceInput';
-    const radioEaster = document.createElement('input');
-    radioEaster.type = 'checkbox';
-    radioEaster.name = 'radioOption';
-    radioEaster.value = 'easter';
+      dayTourOptions.forEach(option => {
+        const radioContainer = document.createElement('div');
 
-    const priceInput = document.createElement('input');
-    priceInput.type = 'number';
-    priceInput.placeholder = 'Enter price';
-    priceInput.name = 'priceInput';
-    priceInput.className = 'input_price';
+        const radioOption = document.createElement('label');
+        radioOption.textContent = option;
 
-    radioContainer.appendChild(radioDbl);
-    radioContainer.appendChild(document.createTextNode('Double trip all year'));
-    radioContainer.appendChild(priceInput);
+        const priceInput = document.createElement('input');
+        priceInput.type = 'number';
+        priceInput.placeholder = 'Enter price';
+        priceInput.name = 'priceInput';
+        priceInput.className = 'input_price';
 
-    radioContainer.appendChild(radioSolo);
-   
-    radioContainer.appendChild(document.createTextNode('Solo trip all year'));
-    radioContainer.appendChild(priceInput1);
-    radioContainer.appendChild(radioAll);
-    radioContainer.appendChild(document.createTextNode('Double trip christmas and Easter'));
-    radioContainer.appendChild(priceInput2);
-    radioContainer.appendChild(radioEaster);
-    radioContainer.appendChild(document.createTextNode('Solo trip christmas and Easter'));
+        radioOption.appendChild(priceInput);
+        radioContainer.appendChild(radioOption);
+        optionContainer.appendChild(radioContainer);
+      });
+    } else {
 
-    optionContainer.appendChild(radioContainer);
-    optionContainer.appendChild(priceInput3);
-   
+      const radioContainer = document.createElement('div');
+      const radioDbl = document.createElement('label');
+      radioDbl.textContent = 'Double trip all year';
     
+      const priceInput = document.createElement('input');
+      priceInput.type = 'number';
+      priceInput.placeholder = 'Enter price';
+      priceInput.name = 'priceInput';
+      priceInput.className = 'input_price';
+      radioDbl.appendChild(priceInput);
+      radioContainer.appendChild(radioDbl);
+      const radioSolo = document.createElement('label');
+      radioSolo.textContent = 'Solo trip all year';
+      const priceInput1 = document.createElement('input');
+      priceInput1.type = 'number';
+      priceInput1.placeholder = 'Enter price';
+      priceInput1.name = 'priceInput';
+      priceInput1.className = 'input_price';
+      radioSolo.appendChild(priceInput1);
+      radioContainer.appendChild(radioSolo);
+      const radioAll = document.createElement('label');
+      radioAll.textContent = 'Double trip christmas and Easter';
+      const priceInput2 = document.createElement('input');
+      priceInput2.type = 'number';
+      priceInput2.placeholder = 'Enter price';
+      priceInput2.name = 'priceInput';
+      priceInput2.className = 'input_price';
+
+      radioAll.appendChild(priceInput2);
+      radioContainer.appendChild(radioAll);
+
+      const radioEaster = document.createElement('label');
+      radioEaster.textContent = 'Solo trip christmas and Easter';
+      
+      const priceInput3 = document.createElement('input');
+      priceInput3.type = 'number';
+      priceInput3.placeholder = 'Enter price';
+      priceInput3.name = 'priceInput';
+      priceInput3.className = 'input_price';
+
+      radioEaster.appendChild(priceInput3);
+      radioContainer.appendChild(radioEaster);
+
+      optionContainer.appendChild(radioContainer);
+    }
+
     priceOptionsContainer.appendChild(optionContainer);
   });
 }
-
-
-
-

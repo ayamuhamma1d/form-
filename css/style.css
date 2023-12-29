@@ -107,6 +107,7 @@ body {
   }
 .price_package_option{
   display: flex;
+
   justify-content: center;
   align-items: center;
   font-weight: normal;
