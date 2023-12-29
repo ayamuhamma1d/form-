@@ -127,3 +127,14 @@ body {
 textarea{
   resize: none;
 }
+.option-container {
+  margin-top: 16px;
+}
+
+.input_price {
+  margin-right: 1rem;
+}
+
+#priceOptionsContainer {
+  margin-top: 16px;
+}

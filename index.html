@@ -119,39 +119,26 @@
       </div>
 
 
-
       <label for="pricePackage">Price Package:</label>
       <div id="pricePackageOptions" class="price_package_option">
         <label>
-          <input type="radio" name="pricePackage" value="standard" checked> Standard Package
+          <input type="checkbox" name="pricePackage" value="standard"> Standard Package
         </label>
         <label>
-          <input type="radio" name="pricePackage" value="luxury"> Luxury Package
+          <input type="checkbox" name="pricePackage" value="luxury"> Luxury Package
         </label>
         <label>
-          <input type="radio" name="pricePackage" value="demand"> Demand Package
+          <input type="checkbox" name="pricePackage" value="demand"> Demand Package
         </label>
       </div>
   
+
       <label for="priceOptions">Price Options:</label>
       <div id="priceOptionsContainer" class="price_package_option">
-        <label  class="price_options">
-          <input type="radio" name="priceOptions" value="dbl/all" checked> Double/All Year
-        </label>
-        <label class="price_options">
-          <input type="radio" name="priceOptions" value="solo/all"> Solo/All Year
-        </label>
-        <label class="price_options">
-          <input type="radio" name="priceOptions" value="dbl/christmas"> Double/Christmas and Easter
-        </label>
-        <label class="price_options">
-          <input type="radio" name="priceOptions" value="solo/christmas"> Solo/Christmas and Easter
-        </label>
       </div>
-      <label for="tripOptions">Trip Options:</label>
-      <div id="tripOptionsContainer">
-      </div>
+      <div id="optionsContainer"></div>
       <button type="button" onclick="addOption()">
+        
         Add Option
       </button>
     

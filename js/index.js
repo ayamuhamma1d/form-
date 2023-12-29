@@ -61,25 +61,14 @@ function addInput(containerId) {
     input.type = 'text';
     container.prepend(input);
 }
-function handlePricePackageChange() {
-  const priceOptionsContainer = document.getElementById('priceOptionsContainer');
-  const pricePackage = document.querySelector('input[name="pricePackage"]:checked').value;
-  if (pricePackage === 'standard') {
 
-    priceOptionsContainer.style.display = 'flex';
-  } else if (pricePackage === 'luxury') {
-
-    priceOptionsContainer.style.display = 'flex';
-  } else if (pricePackage === 'demand') {
-    priceOptionsContainer.style.display = 'flex';
-  }
-}
 
 const pricePackageOptions = document.getElementById('pricePackageOptions');
 pricePackageOptions.addEventListener('change', handlePricePackageChange);
+
 function addOption() {
-  const optionsContainer = document.getElementById('tripOptionsContainer');
-  const optionContainer = document.createElement('div');
+  const optionsContainer = document.getElementById('optionsContainer');
+    const optionContainer = document.createElement('div');
   optionContainer.classList.add('option-container');
 
   const textInput = document.createElement('input');
@@ -99,3 +88,84 @@ document.getElementById('tripDuration').addEventListener('input', function() {
   const unit = this.value === '1' ? 'day' : 'days';
   document.getElementById('durationUnit').textContent = unit;
 });
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('#tripForm').addEventListener('submit', validateForm);
+
+  document.querySelectorAll('input[name="pricePackage"]').forEach(function (checkbox) {
+    checkbox.addEventListener('change', handlePricePackageChange);
+  });
+});
+
+
+function handlePricePackageChange() {
+  const priceOptionsContainer = document.getElementById('priceOptionsContainer');
+  const selectedPackages = document.querySelectorAll('input[name="pricePackage"]:checked');
+  
+  priceOptionsContainer.innerHTML = '';
+
+  selectedPackages.forEach(package => {
+    const optionContainer = document.createElement('div');
+    optionContainer.classList.add('option-container');
+
+    const radioContainer = document.createElement('div');
+
+    const radioDbl = document.createElement('input');
+    radioDbl.type = 'checkbox';
+    radioDbl.name = 'radioOption';
+    radioDbl.value = 'dbl';
+     const radioSolo = document.createElement('input');
+    radioSolo.type = 'checkbox';
+    radioSolo.name = 'radioOption';
+    radioSolo.value = 'solo';
+    const radioAll = document.createElement('input');
+    radioAll.type = 'checkbox';
+    radioAll.name = 'radioOption';
+    radioAll.value = 'all';
+    const priceInput1 = document.createElement('input');
+    priceInput1.type = 'number';
+    priceInput1.placeholder = 'Enter price';
+    priceInput1.name = 'priceInput';
+    const priceInput2 = document.createElement('input');
+    priceInput2.type = 'number';
+    priceInput2.placeholder = 'Enter price';
+    priceInput2.name = 'priceInput';
+    const priceInput3 = document.createElement('input');
+    priceInput3.type = 'number';
+    priceInput3.placeholder = 'Enter price';
+    priceInput3.name = 'priceInput';
+    const radioEaster = document.createElement('input');
+    radioEaster.type = 'checkbox';
+    radioEaster.name = 'radioOption';
+    radioEaster.value = 'easter';
+
+    const priceInput = document.createElement('input');
+    priceInput.type = 'number';
+    priceInput.placeholder = 'Enter price';
+    priceInput.name = 'priceInput';
+    priceInput.className = 'input_price';
+
+    radioContainer.appendChild(radioDbl);
+    radioContainer.appendChild(document.createTextNode('Double trip all year'));
+    radioContainer.appendChild(priceInput);
+
+    radioContainer.appendChild(radioSolo);
+   
+    radioContainer.appendChild(document.createTextNode('Solo trip all year'));
+    radioContainer.appendChild(priceInput1);
+    radioContainer.appendChild(radioAll);
+    radioContainer.appendChild(document.createTextNode('Double trip christmas and Easter'));
+    radioContainer.appendChild(priceInput2);
+    radioContainer.appendChild(radioEaster);
+    radioContainer.appendChild(document.createTextNode('Solo trip christmas and Easter'));
+
+    optionContainer.appendChild(radioContainer);
+    optionContainer.appendChild(priceInput3);
+   
+    
+    priceOptionsContainer.appendChild(optionContainer);
+  });
+}
+
+
+
+
