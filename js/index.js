@@ -45,14 +45,14 @@ function validateForm() {
   const tripDuration = document.getElementById('tripDuration').value;
   const tripType = document.getElementById('tripType');
   if (isNaN(tripDuration) || tripDuration < 1) {
-    alert('Please enter a valid trip duration.');
+    alert('Please enter a valid trip duration');
     return false;
   }
   if (tripType.selectedOptions.length === 0) {
-    alert('Please select at least one trip type.');
+    alert('Please select at least one trip ');
     return false;
   }
-  alert('Form submitted successfully!');
+  alert('Form submitted ');
   return true;
 }
 function addInput(containerId) {
